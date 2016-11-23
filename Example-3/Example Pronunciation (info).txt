@@ -1,0 +1,112 @@
+~English~
+
+Question
+Write an assembly program that asks the user to enter two
+integers and calculate the maximum common divisor (GCD), using
+Euclid's algorithm. Specifically:
+1. When the program starts must print on the console the following QtSpim
+phrase: "Calculation of the Greatest Common Divisor of two integers using Euclid's
+algorithm ".
+2. Then you need to ask the user to enter the first integer and
+then, after the introduction of the first integer should be requested by the user and
+the second integer.
+3. After the calculations, the program should print the message: "The Greatest
+Common Divisor is: "and next to it the GCD of two numbers.
+4. If both numbers are entered by the user is equal to 0,
+program should print the message: "Both numbers are 0s !!!".
+5. After calculating the gcd of two numbers, the program must return to the top
+(Step 2) and asks the user to enter two numbers again (the original message
+Step 1 but should not reprint).
+
+Clarifications - Tips
+1. The algorithm of Euclid is the most well known calculation algorithms
+NDT and you can easily find relevant information. Its operation is based
+successive divisions, of which whenever needed the rest. An example
+calculating GCD of the numbers 1071 and 1029 shown in the table below:
+
+Integer 1       Integer 2      Explanation
+  1071              1029        Initial price
+  1029              42          Repeat 1: 42 is the remainder of division
+                                1071/1029 which is positioned right while the divisor
+                                1029 placed left
+  42                21          Repeat 2: Repeat the loop by dividing the
+                                1029 with 42 (get rest 21)
+  21                0           Repeat 3: 42/21 = 2 and rest 0. The algorithm
+                                terminated when the number on the right is 0, while the
+                                greatest common divisor is the number on the left
+                                (21 in this case)
+                            
+In the above example the integer 1 is always greater than 2. If Integer
+initially Integer 2 was greater than the integer 1 there would be no problem, since the
+first iteration of the algorithm would reverse the order of the numbers.
+2. The user can enter and negative numbers. Because when in a division
+a negative number involved the rest can result negative, is
+preferably before applying the algorithm of Euclid, convert the integers
+entered by the user in a positive (although of course some of them are negative). The conversion can be done very easily by removing each of the negative
+integer of 0.
+3. Ensure that in the implementation of Euclid's algorithm to avoid
+divisions by 0. Anyway, if after an iteration the smallest integer
+becomes 0, the algorithm needs to close. If one of the two
+original integer is 0 and the other does not, then the NDT equal the nonzero
+integer (or the absolute value if this is negative).
+4. For the calculation of a division remainder use the div command with two
+arguments, which stores the quotient of dividing the register Lo and
+rest in register Hi. Then to transfer the rest of the
+Hi register in register desired, use mfhi command.
+
+
+~Greek~
+
+Ερώτημα
+Να γράψετε ένα πρόγραμμα assembly, το οποίο θα ζητάει από το χρήστη να εισάγει δύο
+ακέραιους αριθμούς και θα υπολογίζει το Μέγιστο Κοινό Διαιρέτη (ΜΚΔ) τους χρησιμοποιώντας
+τον αλγόριθμο του Ευκλείδη. Συγκεκριμένα:
+1. Όταν το πρόγραμμα ξεκινάει θα πρέπει να τυπώνει στην κονσόλα του QtSpim την ακόλουθη
+φράση: "Calculation of the Greatest Common Divisor of two integers using Euclid's
+algorithm".
+2. Στη συνέχεια θα πρέπει να ζητάει από το χρήστη να εισάγει τον πρώτο ακέραιο αριθμό και
+κατόπιν, μετά την εισαγωγή του πρώτου ακεραίου, θα πρέπει να ζητείται από το χρήστη και
+ο δεύτερος ακέραιος.
+3. Μετά τους υπολογισμούς, το πρόγραμμα θα πρέπει να τυπώνει το μήνυμα: "The Greatest
+Common Divisor is: " και δίπλα σε αυτό τον ΜΚΔ των δύο αριθμών.
+4. Σε περίπτωση που και οι δύο αριθμοί που εισήγαγε ο χρήστης είναι ίσοι με το 0, το
+πρόγραμμα θα πρέπει να τυπώνει το μήνυμα: "Both numbers are 0s!!!".
+5. Μετά τον υπολογισμό του ΜΚΔ δύο αριθμών, το πρόγραμμα πρέπει να επιστρέφει στην αρχή
+(Βήμα 2) και να ζητάει από το χρήστη να εισάγει και πάλι δύο αριθμούς (το αρχικό μήνυμα
+του Βήματος 1 όμως δεν πρέπει να ξανατυπώνεται).
+
+Διευκρινίσεις – Υποδείξεις
+1. Ο αλγόριθμος του Ευκλείδη είναι από τους πιο γνωστούς αλγόριθμους υπολογισμού του
+ΜΚΔ και μπορείτε πολύ εύκολα να βρείτε σχετικές πληροφορίες. Η λειτουργία του βασίζεται
+σε διαδοχικές διαιρέσεις, από τις οποίες κάθε φορά απαιτείται το υπόλοιπο. Ένα παράδειγμα
+υπολογισμού του ΜΚΔ των αριθμών 1071 και 1029 φαίνεται στον πίνακα που ακολουθεί:
+
+Ακέραιος 1     Ακέραιος 2    Επεξήγηση
+  1071             1029     Αρχικές τιμές
+  1029              42      Επανάληψη 1: Το 42 είναι το υπόλοιπο της διαίρεσης
+                            1071/1029 το οποίο τοποθετείται δεξιά, ενώ ο διαιρέτης
+                            1029 τοποθετείται αριστερά
+  42                21      Επανάληψη 2: Επαναλαμβάνουμε το loop διαιρώντας το
+                            1029 με το 42 (παίρνουμε υπόλοιπο 21)
+  21                 0      Επανάληψη 3: 42/21=2 και υπόλοιπο 0. Ο αλγόριθμος
+                            τερματίζεται όταν ο αριθμός στα δεξιά είναι 0, ενώ ο
+                            μέγιστος κοινός διαιρέτης είναι ο αριθμός στα αριστερά
+                            (το 21 σε αυτή την περίπτωση)
+                            
+Στο παραπάνω παράδειγμα ο Ακέραιος 1 είναι πάντα μεγαλύτερος του Ακεραίου 2. Εάν
+αρχικά ο Ακέραιος 2 ήταν μεγαλύτερος από τον Ακέραιο 1 δεν θα υπήρχε πρόβλημα, αφού η
+πρώτη επανάληψη του αλγορίθμου θα αντέστρεφε τη σειρά των αριθμών.
+2. Ο χρήστης μπορεί να εισάγει και αρνητικούς αριθμούς. Επειδή όταν σε μία διαίρεση
+συμμετέχει ένας αρνητικός αριθμός το υπόλοιπο μπορεί να προκύψει αρνητικό, είναι
+προτιμότερο, πριν εφαρμόσετε τον αλγόριθμο του Ευκλείδη, να μετατρέψετε τους ακέραιους
+που εισήγαγε ο χρήστης σε θετικούς (αν φυσικά κάποιος από αυτούς είναι αρνητικός).
+Η μετατροπή μπορεί να γίνει πολύ εύκολα αφαιρώντας κάθε έναν από τους αρνητικούς ακέραιους από το 0.
+3. Προσέξτε ώστε κατά την εφαρμογή του αλγορίθμου του Ευκλείδη να αποφεύγονται οι
+διαιρέσεις με το 0. Ούτως ή άλλως, αν μετά από κάποια επανάληψη ο μικρότερος ακέραιος
+γίνει 0, ο αλγόριθμος πρέπει να τερματιστεί. Στην περίπτωση που ο ένας από τους δύο
+αρχικούς ακέραιους είναι 0 και ο άλλος όχι, τότε ο ΜΚΔ τους ισούται με τον μη μηδενικό
+ακέραιο (ή με την απόλυτη τιμή του αν αυτός είναι αρνητικός).
+4. Για τον υπολογισμό του υπολοίπου μίας διαίρεσης χρησιμοποιήστε την εντολή div με δύο
+ορίσματα, η οποία αποθηκεύει το πηλίκο της διαίρεσης στον καταχωρητή Lo και το
+υπόλοιπο στον καταχωρητή Hi. Στη συνέχεια, για να μεταφέρετε το υπόλοιπο από τον
+καταχωρητή Hi στον καταχωρητή που επιθυμείτε, χρησιμοποιείστε την εντολή mfhi.

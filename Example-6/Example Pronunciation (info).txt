@@ -43,9 +43,7 @@ function.
 3. When you want to call a function execute command jal FUNC_LABEL, broth
 FUNC_LABEL is the label by which the code of the function starts. Before the
 jal instruction should have set the registers used for
-passing parameters to a function (the $ a0 and $ a1 in this exercise) to
-34
-appropriate values. The values ​​of these registers are used by the code
+passing parameters to a function (the $ a0 and $ a1 in this exercise) to appropriate values. The values ​​of these registers are used by the code
 the function to calculate the desired result.
 4. The last instruction of each function must be always jr $ ra (return call
 synarisis).
@@ -144,9 +142,7 @@ years:", όπου k θα είναι η τιμή που έχει εισάγει �
 3. Όταν θέλουμε να καλέσουμε μία συνάρτηση εκτελούμε την εντολή jal FUNC_LABEL, οπού
 FUNC_LABEL είναι το label από το οποίο ξεκινάει ο κώδικας της συνάρτησης. Πριν την
 εντολή jal θα πρέπει να έχουμε θέσει τους καταχωρητές που χρησιμοποιούνται για
-πέρασμα παραμέτρων σε συνάρτηση (τους $a0 και $a1 στην παρούσα άσκηση) στις 
-34
-κατάλληλες τιμές. Οι τιμές των καταχωρητών αυτών χρησιμοποιούνται από τον κώδικα
+πέρασμα παραμέτρων σε συνάρτηση (τους $a0 και $a1 στην παρούσα άσκηση) στις κατάλληλες τιμές. Οι τιμές των καταχωρητών αυτών χρησιμοποιούνται από τον κώδικα
 της συνάρτησης για τον υπολογισμό του επιθυμητού αποτελέσματος.
 4. Η τελευταία εντολή κάθε συνάρτησης πρέπει να είναι πάντα η jr $ra (επιστροφή από κλήση
 συνάρησης).

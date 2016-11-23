@@ -1,4 +1,4 @@
-# 1η Β' άσκηση, Παναγιώτης-Στέφανος Μάκος icsd15111
+# Example 1 B, Panagiotis-Stephanos Makos icsd15111
 
 .data                                          # directive toy assembly,apo edo kai kato dilonontai oi metavlites
 str: .asciiz "Eisigage ton proto akeraio\n"   #metabliti me onoma str,tupou string me ascii xaraktires kai mesa sta " ",toy dinoume timh,to .asciiz mas leei ton tupo tis metavlitis

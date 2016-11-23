@@ -1,4 +1,4 @@
-# Example 1 A' Panagiotis-Stephanos Makos icsd15111
+# Example 1A Panagiotis-Stephanos Makos icsd15111
 
 .data                        # directive of assemply, from here the variables declared
 

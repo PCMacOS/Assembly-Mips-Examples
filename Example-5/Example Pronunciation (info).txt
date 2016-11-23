@@ -1,0 +1,98 @@
+~English~
+
+Question
+Write an assembly program, which classifies 10 integers
+using the algorithm bubble sort, and then prints them.
+Specifically:
+1. The program will ask for 10 integers from the user (by successive
+question and answer format "Give integer 1:", "Give integer 2:", etc.) and their
+stores a table 10 positions will commit appropriate section
+statements of the program.
+2. Then displays on the console of QtSpim message "Unsorted array:" and
+next line will print the integers previously stored in
+table, one next to each other, separated by spaces.
+3. Then it sorts the integers of the table in ascending order (from the smallest
+the greater) using bubble sort.
+4. Finally, it displays the message "Sorted array:" and the next line will print out
+new data table, which is now registered.
+
+Clarifications - Tips
+1. The bubble sort is the simplest sort algorithm. The operation is as follows: the
+first element of the array is compared with the second. If the first item is
+bigger then exchange positions. Then, the second element is compared with the third
+and an exchange position where the second element is greater than the third.
+Subsequently, the third element is compared with the fourth etc. This procedure
+called "pass» (pass). Therefore, after the first pass the greatest integer will
+loaded in the correct position, ie the position of the table with the highest ratio
+(In 10th place in the desired program). With successive passes classified and
+other elements of the table. The classification process is completed when a
+a passage been no exchange of data creation. For this purpose is required
+the use of a flag (register), with a value indicating whether or not it has become exchange
+positions in one pass.
+There are several optimizations algorithm bubble sort. For example,
+Obviously after the i-th pass the last i elements of the table are
+classified, so no need to deal with them all the next
+passage. By more careful observation can be seen that each pass is sufficient
+to make comparisons to the point where it has become the latest exchange positions in
+previous passage, since all the data from this point onwards is
+classified. In your program you can implement any variant of
+algorithm desired.
+For more details and examples of the implementation of bubble sort
+Refer to the notes in the lesson book Data Structures, but in
+email: http://en.wikipedia.org/wiki/Bubble_sort.
+2. Note: The two prints of the table (before and after classification) will be
+made from the same piece of code. Whenever ending execution of the section
+, the program should be continued in a different place depending on whether they are
+the first time (printing of non-classified table) or the second (printing classified table) running this code segment. And here you will need
+To use a register whose value will help you distinguish
+between two different print cases.
+
+
+~Greek~
+
+Ερώτημα
+Να γράψετε ένα πρόγραμμα assembly, το οποίο θα ταξινομεί 10 ακέραιους αριθμούς
+χρησιμοποιώντας τον αλγόριθμο bubble sort και στη συνέχεια θα τους εκτυπώνει.
+Συγκεκριμένα:
+1. Το πρόγραμμα θα ζητάει 10 ακέραιους αριθμούς από το χρήστη (με διαδοχικές
+ερωταποκρίσεις της μορφής "Give integer 1: ", "Give integer 2: ", κ.τ.λ.) και θα τους
+αποθηκεύει σε έναν πίνακα 10 θέσεων που θα έχει δεσμευθεί κατάλληλα στο τμήμα
+δηλώσεων του προγράμματος.
+2. Στη συνέχεια θα εμφανίζει στην κονσόλα του QtSpim το μήνυμα "Unsorted array:" και στην
+επόμενη γραμμή θα εκτυπώνει τους ακεραίους που αποθηκεύθηκαν προηγουμένως στον
+πίνακα, τον έναν δίπλα στον άλλο, χωρισμένους με κενά.
+3. Ακολούθως θα ταξινομεί τους ακεραίους του πίνακα κατά αύξουσα σειρά (από το μικρότερο
+στο μεγαλύτερο) χρησιμοποιώντας bubble sort.
+4. Τέλος, θα εμφανίζει το μήνυμα "Sorted array:" και στην επόμενη γραμμή θα εκτυπώνει εκ
+νέου τα στοιχεία του πίνακα, τα οποία θα είναι πλέον ταξινομημένα.
+
+Διευκρινίσεις – Υποδείξεις
+1. Ο bubble sort είναι ο πιο απλός αλγόριθμος ταξινόμησης. Η λειτουργία του έχει ως εξής: το
+πρώτο στοιχείο του πίνακα συγκρίνεται με το δεύτερο. Εάν το πρώτο στοιχείο είναι
+μεγαλύτερο τότε ανταλλάσουν θέσεις. Κατόπιν, το δεύτερο στοιχείο συγκρίνεται με το τρίτο
+και γίνεται ανταλλαγή θέσεων αν το δεύτερο στοιχείο είναι μεγαλύτερο του τρίτου.
+Ακολούθως, το τρίτο στοιχείο συγκρίνεται με το τέταρτο κ.τ.λ. Η διαδικασία αυτή
+ονομάζεται «πέρασμα» (pass). Συνεπώς, μετά το πρώτο πέρασμα ο μεγαλύτερος ακέραιος θα
+έχει τοποθετηθεί στη σωστή του θέση, δηλαδή στη θέση του πίνακα με το μεγαλύτερο δείκτη
+(στη 10η θέση στο ζητούμενο πρόγραμμα). Με διαδοχικά περάσματα ταξινομούνται και τα
+υπόλοιπα στοιχεία του πίνακα. Η διαδικασία της ταξινόμησης έχει ολοκληρωθεί όταν σε
+κάποιο πέρασμα δεν γίνει καμία ανταλλαγή θέσεων στοιχείων. Για το σκοπό αυτό απαιτείται
+η χρήση ενός flag (καταχωρητή), του οποίου η τιμή θα δηλώνει αν έχει γίνει ή όχι ανταλλαγή
+θέσεων σε ένα πέρασμα.
+Υπάρχουν διάφορες βελτιστοποιήσεις του αλγορίθμου bubble sort. Για παράδειγμα, είναι
+προφανές ότι μετά το i-οστό πέρασμα τα i τελευταία στοιχεία του πίνακα είναι
+ταξινομημένα, οπότε δεν χρειάζεται να ασχοληθούμε καθόλου μαζί τους στο επόμενο
+πέρασμα. Με πιο προσεκτική παρατήρηση μπορεί να δει κανείς ότι σε κάθε πέρασμα αρκεί
+να κάνουμε συγκρίσεις μέχρι το σημείο όπου έχει γίνει η τελευταία ανταλλαγή θέσεων στο
+προηγούμενο πέρασμα, αφού όλα τα στοιχεία από το σημείο αυτό και μετά είναι
+ταξινομημένα. Στο πρόγραμμά σας μπορείτε να υλοποιήσετε οποιαδήποτε παραλλαγή του
+αλγορίθμου επιθυμείτε.
+Για περισσότερες λεπτομέρειες αλλά και παραδείγματα εφαρμογής του bubble sort
+ανατρέξτε στις σημειώσεις και στο βιβλίο του μαθήματος Δομές Δεδομένων, αλλά και στην
+ηλεκτρονική διεύθυνση: http://en.wikipedia.org/wiki/Bubble_sort.
+2. Προσοχή: Οι δύο εκτυπώσεις του πίνακα (πριν και μετά την ταξινόμηση) θα πρέπει να
+γίνονται από το ίδιο τμήμα κώδικα. Κάθε φορά που τελειώνει η εκτέλεση του τμήματος
+αυτού, το πρόγραμμα θα πρέπει να συνεχίζει σε διαφορετικό σημείο, ανάλογα με το αν είναι
+η πρώτη φορά (εκτύπωση του μη ταξινομημένου πίνακα) ή η δεύτερη (εκτύπωση του ταξινομημένου πίνακα) που εκτελείται το συγκεκριμένο τμήμα κώδικα. Και εδώ θα χρειαστεί
+να χρησιμοποιήσετε έναν καταχωρητή, του οποίου η τιμή θα σας βοηθήσει να διακρίνετε
+μεταξύ των δύο διαφορετικών περιπτώσεων εκτύπωσης.

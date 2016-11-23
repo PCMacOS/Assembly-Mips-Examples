@@ -1,0 +1,10 @@
+Example 1 <br>
+Questions: <br>
+A. Write a program that displays your name and the registration number <br>
+you, in two consecutive lines in console QtSpim. <br>
+B. Write a program that asks the user to enter two integers <br>
+numbers, displaying appropriate messages to the console QtSpim. Then will <br>
+performs the act of removing the second number from the first and displays the <br>
+effect, accompanied by an appropriate message (eg "The result of the subtraction is"), in the console. <br>
+To store the two numbers and the result of subtraction to <br>
+total use two registers of MIPS, the $ t0 and $ t1. <br>

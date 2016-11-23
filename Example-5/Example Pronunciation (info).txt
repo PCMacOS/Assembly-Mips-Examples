@@ -41,8 +41,8 @@ For more details and examples of the implementation of bubble sort
 Refer to the notes in the lesson book Data Structures, but in
 email: http://en.wikipedia.org/wiki/Bubble_sort.
 2. Note: The two prints of the table (before and after classification) will be
-made from the same piece of code. Whenever ending execution of the section
-, the program should be continued in a different place depending on whether they are
+made from the same piece of code. Whenever ending execution of the section,
+the program should be continued in a different place depending on whether they are
 the first time (printing of non-classified table) or the second (printing classified table) running this code segment. And here you will need
 To use a register whose value will help you distinguish
 between two different print cases.

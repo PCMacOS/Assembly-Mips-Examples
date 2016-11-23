@@ -1,0 +1,76 @@
+~English~
+
+Question
+Write an assembly program, which calculates and stores it in a
+the table 20 first terms of an arithmetic progression, will print them on the console
+QtSpim the reverse order and finally prints their sum.
+Recall that each term of a numerical progression (ai + 1) is calculated by
+predecessor (ai) from the equation: ai + 1 = ai + h, where h is the step of arithmetic
+Progress (fixed number). Specifically, your program should:
+1. To reserve a table 20 integers (.word). This should be done in the declaration part
+program.
+2. asks the user to enter the first term (a0) and step oh the
+arithmetic progression. This will be done in two successive questions and answers at the beginning of
+program execution.
+3. Calculate 20 terms of the arithmetic progression starting from a0 (the a0 considered the
+first of 20 terms), and store them one by one on the table that has
+previously declared.
+4. accesses the table in reverse order (from last to first
+element) and print the terms of the sequence one beside the other,
+separated by spaces.
+5. To print, in the next line of the console, the sum of 20 terms
+sequence accompanied by an appropriate message (eg "The sum of the 20 first terms of the
+sequence is "). Caution: this sum will be stored, after calculating
+of, and at a variable in main memory, which is suitably declared in
+program.
+Clarifications - Tips
+1. It is obvious that for the realization of the desired program should
+use two loop: one for the calculation of the terms of the arithmetic progression and
+storing them in the table, and one for printing conditions (in reverse
+series) the console QtSpim.
+2. The calculation of the sum of the terms of progress can be made in any of
+Both aforementioned loop.
+3. To access the various positions of the table, use the reference to
+memory using base and index register (p. 11 of this manual). Note that because
+it integers table each position occupies 4 bytes and so the
+index register will be increased by 4 to access the next element
+of the table (or decrease by 4 to access the previous).
+
+
+~Greek~
+
+Ερώτημα
+Να γράψετε ένα πρόγραμμα assembly, το οποίο θα υπολογίζει και θα αποθηκεύει σε έναν
+πίνακα τους 20 πρώτους όρους μίας αριθμητικής προόδου, θα τους εκτυπώνει στην κονσόλα
+του QtSpim με αντίστροφη σειρά και στο τέλος θα εκτυπώνει το άθροισμά τους.
+Υπενθυμίζεται ότι κάθε όρος μίας αριθμητικής προόδου (αi+1) υπολογίζεται από τον
+προηγούμενό του (αi) από τη σχέση: αi+1 = αi + ω, όπου ω είναι το βήμα της αριθμητικής
+προόδου (σταθερός αριθμός). Συγκεκριμένα, το πρόγραμμά σας θα πρέπει:
+1. Να δεσμεύει έναν πίνακα 20 ακεραίων (.word). Αυτό πρέπει να γίνεται στο τμήμα δηλώσεων
+του προγράμματος.
+2. Να ζητάει από το χρήστη να εισάγει τον πρώτο όρο (α0) καθώς και το βήμα ω της
+αριθμητικής προόδου. Αυτό θα γίνεται με δύο διαδοχικές ερωταποκρίσεις στην αρχή της
+εκτέλεσης του προγράμματος.
+3. Να υπολογίζει 20 όρους της αριθμητικής προόδου ξεκινώντας από τον α0 (ο α0 θεωρείται ο
+πρώτος από τους 20 όρους), και να τους αποθηκεύει έναν προς ένα στον πίνακα που έχει
+δηλωθεί προηγουμένως.
+4. Να προσπελαύνει τον πίνακα με αντίστροφη σειρά (από το τελευταίο προς το πρώτο
+στοιχείο) και να εκτυπώνει τους όρους της ακολουθίας τον έναν δίπλα στον άλλο,
+χωρισμένους με κενά.
+5. Να εκτυπώνει, σε επόμενη γραμμή της κονσόλας, το άθροισμα των 20 όρων της
+ακολουθίας συνοδευόμενο από κατάλληλο μήνυμα (π.χ. "The sum of the 20 first terms of the
+sequence is "). Προσοχή: το άθροισμα αυτό θα πρέπει να αποθηκευθεί, μετά τον υπολογισμό
+του, και σε μία μεταβλητή στην κύρια μνήμη, η οποία θα έχει δηλωθεί κατάλληλα μέσα στο
+πρόγραμμα.
+Διευκρινίσεις – Υποδείξεις
+1. Είναι προφανές ότι για την υλοποίηση του ζητούμενου προγράμματος πρέπει να
+χρησιμοποιήσετε δύο loop: ένα για τον υπολογισμό των όρων της αριθμητικής προόδου και
+την αποθήκευση τους στον πίνακα, και ένα για την εκτύπωση των όρων (με αντίστροφη
+σειρά) στην κονσόλα του QtSpim.
+2. Ο υπολογισμός του αθροίσματος των όρων της προόδου μπορεί να γίνει σε οποιοδήποτε από
+τα δύο προαναφερθέντα loop.
+3. Για την προσπέλαση των διάφορων θέσεων του πίνακα χρησιμοποιήστε την αναφορά στη
+μνήμη με χρήση βάσης και καταχωρητή δείκτη (σελ. 11 του εγχειριδίου). Προσέξτε ότι επειδή
+πρόκειται για πίνακα ακεραίων, κάθε θέση του καταλαμβάνει 4 byte και άρα ο
+καταχωρητής δείκτη θα πρέπει να αυξηθεί κατά 4 για να προσπελάσετε το επόμενο στοιχείο
+του πίνακα (ή να μειωθεί κατά 4 για να προσπελάσετε το προηγούμενο).

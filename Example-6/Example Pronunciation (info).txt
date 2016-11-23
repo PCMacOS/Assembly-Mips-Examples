@@ -1,60 +1,199 @@
 ~English~
 
 Question
-The Fibonacci sequence is an arithmetic series, each term of which is clear from
-sum of the two previous ones, while the first two terms are 0 and 1 (i.e., fibn + 2 =
-fibn + 1 + fibn, with fib0 = 0 and fib1 = 1). Accordingly, the first terms of the sequence are: 0, 1, 1, 2, 3,
-5, 8, 13, 21, 34, 55, 89, 144, 233 ... Write a program, which will initially asks
-the user to enter the number of terms of the Fibonacci sequence that wishes to
-printed and then prints these conditions to the console QtSpim, the
-one beside the other, separated by spaces (that is, input 5 will be
-displayed: 0 1 1 2 3).
+Write an assembly program, which calculates the moving average 10
+temperatures and will print them. Specifically:
+1. The program will ask for 10 temperatures by the user (by successive questions and answers
+form "Give temperature 1:", "Give temperature 2:", etc.) and saves them in
+a table 10 positions will be properly bound to the declarations section of
+program. Temperatures to be entered will be integers (and hence the
+and so the table will be stored). Suppose that correspond to the temperature
+an area for the same time of year, the last ten years.
+2. Then, the program will display in the console QtSpim a message
+which asks the user the number of temperatures, even k, on which it will
+calculated moving averages. As moving averages define averages k
+temperatures (with k <10), which are calculated as follows: the first average
+k is calculated using the first temperature, the next using
+temperatures from the second to the k + 1, and so on, until used, and the latter
+temperature. For example if the ten temperatures are T1, C2, ..., T10 and k = 7, then
+resulting four moving averages, which are: (T1 + C2 + C3 + C4 + C5 + C6 + C7) / 7
+(C2 + C3 + C4 + C5 + C6 + C7 + C8) / 7 (C3 + C4 + C5 + C6 + C7 + C8 + -C9) / 7 and (C4 + C5 + C6 + C7 + C8 + -C9 + T10 ) / 7.
+3. Finally, the program will display a message of the form "Average temperatures per k
+years: ", where k is the value that is entered by the user before, will
+calculates the moving averages and displays the next line
+console QtSpim, one beside the other, separated by spaces. Note that no
+It takes the moving averages to be stored in a table. Simply, everyone
+of them will be printed to the console immediately after the calculation.
+
 Clarifications - Tips
-1. It is obvious that for the calculation and printing of terms of the sequence
-the user prompts, you need to use a loop. Each iteration of the loop will
-manages two terms of the sequence, even if the i and i + 1, which will be
-stored in two registers. Specifically, in each iteration will be printed the
-i term of the sequence, I calculated the term i + 2 (by i and i + 1) and stored
-(The same registers that the terms i and i + 1) terms were stored
-i + 1 and i + 2, so be ready for the next iteration of the loop.
-2. Use your code in the smallest possible number of MIPS registers.
-In particular, for the calculation of the terms of the Fibonacci sequence, you need three
-recorders (two for storing the terms of the sequence that manages each
-repeating the loop, and a temporary for the alternations of terms). the three
-aforementioned registers the counter does not count the repetitions of
-loop.
-3. Do not forget to use the exit system call in your code for
-correct termination of the program.
-4. Repeat the execution of the program, making the "Clear function
-Registers "of QtSpim before the" Run "button is pressed again.
+1. The calculation of the moving average must be done with one function call. H
+requested function will calculate a moving average in each call and
+It takes two (2) parameters: the position of the temperature table where you should
+start the calculations (in register $ a0), and the value k has
+user input (in register $ a1). Thus, for the calculation of the third
+roving in the example above, (C3 + C4 + C5 + C6 + C7 + C8 + -C9) / 7, the function will be
+must be called with the value 2 into register $ a0 (assuming that the numbering of
+position of the table starts at 0 and so the third temperature is in position 2 of
+table), and the value 7 in register $ a1.
+2. Functions assembly language is nothing more than a piece of code that starts
+from a label. In other words, there is no specific statement in which
+to define functions in assembly. Just put a label somewhere within the department
+code of our program and below the label that we provide the code of
+function.
+3. When you want to call a function execute command jal FUNC_LABEL, broth
+FUNC_LABEL is the label by which the code of the function starts. Before the
+jal instruction should have set the registers used for
+passing parameters to a function (the $ a0 and $ a1 in this exercise) to
+34
+appropriate values. The values ​​of these registers are used by the code
+the function to calculate the desired result.
+4. The last instruction of each function must be always jr $ ra (return call
+synarisis).
+5. The function asks you to implement a simple function, as there
+You need nor call other functions, nor to manage any
+amount of memory. All you have to watch not to break the rules
+use of MIPS registers (see. Table 1.1 of the manual) is to
+use mainly in the program registers $ s0- $ s7 and function
+registers $ t0- $ t9. 3
+6. Moving averages to calculate are real (rather than integers)
+numbers. For this reason, dividing the k value having the user inserts must
+Floating point is not intact (as opposed to adding the
+temperatures - temperatures are intact and thus their sum is
+integer). To perform floating point division should the operands of
+Act to be in floating point registers and have
+converted to have the proper format (floating point). This can
+done sequentially executing commands mtc1 and cvt.s.w. H mtc1 transfer content
+an integer register to a floating-point register. For example,
+mtc1 $ t0, $ f0 transfer the contents of the integer register $ t0 in register
+float $ f0 (attention, the number of registers in drafting mtc1
+is reversed from that of most of the command assembly of MIPS). at
+then performing cvt.s.w $ f1, $ f0 o integer stored in $ f0
+transferred to $ f1 and converted to floating point (single-precision). Therefore
+plus the $ f1 contains the desired number (the one that is stored in $ t0) in
+floating point format. The cvt.s.w can obviously be made using
+the same register as source and destination, for example, cvt.s.w $ f0, $ f0.
+7. H above procedure with mtc1 and cvt.s.w commands must be performed
+twice, once for the sum of the temperature and one for the value k.
+8. H division of floating point registers, which have been transferred and
+suitably converting the sum of the temperature and k, will be done using the
+div.s. mandate
+9. To result of dividing the value to be returned by the function.
+The registrar to return floating-point results is $ f0. For
+Therefore, the function before the return jr jr $ command should store
+division result in register $ f0 (this can be done directly,
+appropriate drafting the div.s command).
+10. H print the calculated moving average (which is the main
+program outside the function) will be carried out using the call
+print_float system (with code 2). The command to copy the value of a
+
+ 3) For the implementation of more complex functions, ie. Functions which require the use of both
+T $ and the $ s registers, which internally manage a certain amount of memory or calling
+other functions needed to manage the stack of MIPS (that managed to "hide"
+completely the compiler when writing code in high level languages, eg in C). H manage
+stack makes the function code slightly more complicated. Anyone interested
+more details can read paragraph A.6 of Annex Assemblers,
+Linkers and the SPIM Simulator and the http://cs.ucsb.edu/~franklin/154/Fall07/lectures/Lec5.ppt,
+http://uscspring2010.googlecode.com/svn/trunk/EE%20352/MIPSXCallingXConventionsXSummary.pdf.
+35
+floating point register to another is mov.s (in correspondence with the move
+for general purpose registers).
 
 
 ~Greek~
 
 Ερώτημα
-Η ακολουθία Fibonacci είναι μία αριθμητική σειρά, ο κάθε όρος της οποίας προκύπτει από το
-άθροισμα των δύο προηγούμενων, ενώ οι δύο πρώτοι όροι είναι οι 0 και 1 (δηλαδή, fibn+2 =
-fibn+1+ fibn, με fib0 = 0 και fib1 = 1). Συνεπώς, οι πρώτοι όροι της ακολουθίας είναι οι: 0, 1, 1, 2, 3,
-5, 8, 13, 21, 34, 55, 89, 144, 233, ... Να γράψετε ένα πρόγραμμα, το οποίο θα ζητάει αρχικά από
-το χρήστη να εισάγει το πλήθος των όρων της ακολουθίας Fibonacci που επιθυμεί να
-εκτυπωθούν και, στη συνέχεια, θα εκτυπώνει τους όρους αυτούς στην κονσόλα του QtSpim, τον
-έναν δίπλα στον άλλο, χωρισμένους μεταξύ τους με κενά (δηλαδή, για είσοδο 5, θα πρέπει να
-εμφανίζεται: 0 1 1 2 3).
+Να γράψετε ένα πρόγραμμα assembly, το οποίο θα υπολογίζει τους κινούμενους μέσους 10
+θερμοκρασιών και θα τους τυπώνει. Συγκεκριμένα:
+1. Το πρόγραμμα θα ζητάει 10 θερμοκρασίες από το χρήστη (με διαδοχικές ερωταποκρίσεις
+της μορφής "Give temperature 1: ", "Give temperature 2: ", κ.τ.λ.) και θα τους αποθηκεύει σε
+έναν πίνακα 10 θέσεων που θα έχει δεσμευθεί κατάλληλα στο τμήμα δηλώσεων του
+προγράμματος. Οι θερμοκρασίες που θα εισάγονται θα είναι ακέραιοι αριθμοί (και άρα το
+ίδιο και ο πίνακας που θα αποθηκεύονται). Υποθέστε ότι αντιστοιχούν στη θερμοκρασία
+μίας περιοχής, για την ίδια εποχή του χρόνου, τα δέκα τελευταία χρόνια.
+2. Στη συνέχεια, το πρόγραμμα σας θα εμφανίζει στην κονσόλα του QtSpim ένα μήνυμα, το
+οποίο θα ζητάει από το χρήστη το πλήθος των θερμοκρασιών, έστω k, επί των οποίων θα
+υπολογίζονται οι κινούμενοι μέσοι. Σαν κινούμενους μέσους ορίζουμε τους μέσους όρους k
+θερμοκρασιών (με k < 10), οι οποίοι υπολογίζονται ως εξής: ο πρώτος μέσος όρος
+υπολογίζεται χρησιμοποιώντας τις k πρώτες θερμοκρασίες, ο επόμενος χρησιμοποιώντας
+τις θερμοκρασίες από τη 2η έως την k+1, κ.ο.κ., μέχρι να χρησιμοποιηθεί και η τελευταία
+θερμοκρασία. Για παράδειγμα αν οι δέκα θερμοκρασίες είναι οι θ1, θ2, ..., θ10 και k = 7, τότε
+προκύπτουν τέσσερις κινούμενοι μέσοι, οι οποίοι είναι οι: (θ1+θ2+θ3+θ4+θ5+θ6+θ7)/7,
+(θ2+θ3+θ4+θ5+θ6+θ7+θ8)/7, (θ3+θ4+θ5+θ6+θ7+θ8+θ9)/7 και (θ4+θ5+θ6+θ7+θ8+θ9+θ10)/7.
+3. Τέλος, το πρόγραμμα θα εμφανίζει ένα μήνυμα της μορφής "Average temperatures per k
+years:", όπου k θα είναι η τιμή που έχει εισάγει ο χρήστης προηγουμένως, θα
+υπολογίζει τους κινούμενους μέσους και θα τους εμφανίζει στην επόμενη γραμμή της
+κονσόλας του QtSpim, τον έναν δίπλα στο άλλο, χωρισμένους με κενά. Σημειώνεται ότι δεν
+χρειάζεται οι κινούμενοι μέσοι να αποθηκεύονται σε κάποιον πίνακα. Απλώς, ο καθένας
+από αυτούς θα εκτυπώνεται στην κονσόλα αμέσως μετά τον υπολογισμό του.
+
 Διευκρινίσεις – Υποδείξεις
-1. Είναι προφανές ότι για τον υπολογισμό και την εκτύπωση των όρων της ακολουθίας που
-ζητάει ο χρήστης, θα πρέπει να χρησιμοποιήσετε ένα loop. Κάθε επανάληψη του loop θα
-διαχειρίζεται δύο όρους της ακολουθίας, έστω τους i και i+1, οι οποίοι θα βρίσκονται
-αποθηκευμένοι σε δύο καταχωρητές. Συγκεκριμένα, σε κάθε επανάληψη θα εκτυπώνεται ο
-όρος i της ακολουθίας, θα υπολογίζεται ο όρος i+2 (από τους i και i+1) και θα αποθηκεύονται
-(στους ίδιους καταχωρητές που βρίσκονταν αποθηκευμένοι οι όροι i και i+1) οι όροι
-i+1 και i+2, ώστε να είναι έτοιμοι για την επόμενη επανάληψη του loop.
-2. Χρησιμοποιήστε στον κώδικά σας το μικρότερο δυνατό αριθμό καταχωρητών του MIPS.
-Συγκεκριμένα, για τον υπολογισμό των όρων της ακολουθίας Fibonacci, χρειάζεστε τρεις
-καταχωρητές (δύο για την αποθήκευση των όρων της ακολουθίας που διαχειρίζεται κάθε
-επανάληψη του loop, καθώς και έναν προσωρινό για τις εναλλαγές των όρων). Στους τρεις
-προαναφερθέντες καταχωρητές δεν συνυπολογίζεται ο μετρητής των επαναλήψεων του
-loop.
-3. Μην ξεχάσετε να χρησιμοποιήσετε την κλήση συστήματος exit στον κώδικά σας για το
-σωστό τερματισμό του προγράμματος.
-4. Επαναλάβατε την εκτέλεση του προγράμματος, πραγματοποιώντας τη λειτουργία “Clear
-Registers” του QtSpim πριν πατήσετε εκ νέου το κουμπί “Run”.
+1. Ο υπολογισμός των κινούμενων μέσων πρέπει να γίνεται με κλήση μίας συνάρτησης. H
+ζητούμενη συνάρτηση θα υπολογίζει έναν κινούμενο μέσο σε κάθε κλήση της και θα
+παίρνει δύο (2) παραμέτρους: τη θέση του πίνακα θερμοκρασιών από όπου πρέπει να
+ξεκινήσει τους υπολογισμούς (στον καταχωρητή $a0), καθώς και την τιμή k που έχει
+εισάγει ο χρήστης (στον καταχωρητή $a1). Έτσι, για τον υπολογισμό του τρίτου
+κινούμενου μέσου στο παράδειγμα παραπάνω, (θ3+θ4+θ5+θ6+θ7+θ8+θ9)/7, η συνάρτηση θα
+πρέπει να κληθεί με την τιμή 2 στον καταχωρητή $a0 (θεωρώντας ότι η αρίθμηση των
+θέσεων του πίνακα ξεκινάει από το 0 και άρα η 3η θερμοκρασία βρίσκεται στη θέση 2 του
+πίνακα), και με την τιμή 7 στον καταχωρητή $a1.
+2. Οι συναρτήσεις στην assembly δεν είναι τίποτα άλλο από ένα τμήμα κώδικα που ξεκινάει
+από κάποιο label. Με άλλα λόγια, δεν υπάρχει κάποια συγκεκριμένη δήλωση με την οποία
+να ορίζουμε συναρτήσεις στην assembly. Απλά, βάζουμε ένα label κάπου μέσα στο τμήμα
+κώδικα του προγράμματός μας και κάτω από το label αυτό παραθέτουμε τον κώδικα της
+συνάρτησης.
+3. Όταν θέλουμε να καλέσουμε μία συνάρτηση εκτελούμε την εντολή jal FUNC_LABEL, οπού
+FUNC_LABEL είναι το label από το οποίο ξεκινάει ο κώδικας της συνάρτησης. Πριν την
+εντολή jal θα πρέπει να έχουμε θέσει τους καταχωρητές που χρησιμοποιούνται για
+πέρασμα παραμέτρων σε συνάρτηση (τους $a0 και $a1 στην παρούσα άσκηση) στις 
+34
+κατάλληλες τιμές. Οι τιμές των καταχωρητών αυτών χρησιμοποιούνται από τον κώδικα
+της συνάρτησης για τον υπολογισμό του επιθυμητού αποτελέσματος.
+4. Η τελευταία εντολή κάθε συνάρτησης πρέπει να είναι πάντα η jr $ra (επιστροφή από κλήση
+συνάρησης).
+5. Η συνάρτηση που σας ζητείται να υλοποιήσετε είναι μία απλή συνάρτηση, καθώς δεν
+χρειάζεται ούτε να καλέσει άλλες συναρτήσεις, αλλά ούτε και να διαχειριστεί κάποια
+ποσότητα μνήμης. Το μόνο που θα πρέπει να προσέξετε για να μην παραβείτε τους κανόνες
+χρήσης των καταχωρητών του MIPS (βλ. Πίνακα 1.1 του εγχειριδίου) είναι να
+χρησιμοποιήσετε στο κυρίως πρόγραμμα τους καταχωρητές $s0–$s7 και στη συνάρτηση
+τους καταχωρητές $t0–$t9. 3
+6. Οι κινούμενοι μέσοι που πρέπει να υπολογίσετε είναι πραγματικοί (και όχι ακέραιοι)
+αριθμοί. Για το λόγο αυτό, η διαίρεση με την τιμή k που έχει εισάγει ο χρήστης πρέπει να
+είναι κινητής υποδιαστολής και όχι ακέραια (σε αντίθεση με την άθροιση των
+θερμοκρασιών – οι θερμοκρασίες είναι ακέραιες και άρα και το άθροισμα τους είναι
+ακέραιο). Για να εκτελέσετε διαίρεση κινητής υποδιαστολής θα πρέπει τα τελούμενα της
+πράξης να βρίσκονται σε καταχωρητές κινητής υποδιαστολής αλλά και να έχουν
+μετατραπεί ώστε να έχουν την κατάλληλη μορφή (κινητής υποδιαστολής). Αυτό μπορεί να
+γίνει εκτελώντας διαδοχικά τις εντολές mtc1 και cvt.s.w. H mtc1 μεταφέρει το περιεχόμενο
+ενός ακέραιου καταχωρητή σε έναν καταχωρητή κινητής υποδιαστολής. Για παράδειγμα η
+mtc1 $t0, $f0 μεταφέρει το περιεχόμενο του ακέραιου καταχωρητή $t0 στον καταχωρητή
+κινητής υποδιαστολής $f0 (προσοχή, η σειρά των καταχωρητών κατά τη σύνταξη της mtc1
+είναι αντίστροφη από αυτή των περισσότερων εντολών της assembly του MIPS). Στη
+συνέχεια, εκτελώντας cvt.s.w $f1, $f0 o ακέραιος αριθμός που αποθηκεύτηκε στον $f0
+μεταφέρεται στον $f1 και μετατρέπεται σε κινητής υποδιαστολής (απλής ακρίβειας). Αρά
+πλέον ο $f1 περιέχει τον επιθυμητό αριθμό (αυτόν που είναι αποθηκευμένος στον $t0) σε
+μορφή κινητής υποδιαστολής. Η cvt.s.w μπορεί προφανώς να συνταχθεί χρησιμοποιώντας
+τον ίδιο καταχωρητή σαν source και destination, π.χ. cvt.s.w $f0, $f0.
+7. H προαναφερθείσα διαδικασία με τις εντολές mtc1 και cvt.s.w πρέπει να πραγματοποιηθεί
+δύο φορές, μία για το άθροισμα των θερμοκρασιών και μία για την τιμή k.
+8. H διαίρεση των καταχωρητών κινητής υποδιαστολής, στους οποίους έχουν μεταφερθεί και
+μετατραπεί κατάλληλα το άθροισμα των θερμοκρασιών και το k, θα γίνει με χρήση της
+εντολής div.s.
+9. To αποτέλεσμα της διαίρεσης είναι η τιμή που πρέπει να επιστρέψει η συνάρτηση. Ο
+καταχωρητής για επιστροφή αποτελεσμάτων κινητής υποδιαστολής είναι ο $f0. Για το
+λόγο αυτό, η συνάρτηση, πριν την εντολή επιστροφής jr $ra θα πρέπει να αποθηκεύσει το
+αποτέλεσμα της διαίρεσης στον καταχωρητή $f0 (αυτό μπορεί να γίνει απευθείας,
+συντάσσοντας κατάλληλα την εντολή div.s).
+10. H εκτύπωση του υπολογισθέντα κινούμενου μέσου (η οποία γίνεται από το κυρίως
+πρόγραμμα, έξω από τη συνάρτηση), θα πραγματοποιηθεί με χρήση της κλήσης
+συστήματος print_float (με κωδικό 2). Η εντολή για την αντιγραφή της τιμής ενός
+ 3 Για την υλοποίηση πιο περίπλοκων συναρτήσεων, δηλ. συναρτήσεων που απαιτούν τη χρήση τόσο των
+$t όσο και των $s καταχωρητών, που διαχειρίζονται εσωτερικά κάποια ποσότητα μνήμης ή που καλούν
+άλλες συναρτήσεις, απαιτείται η διαχείριση της στοίβας του MIPS (τη διαχείριση αυτή την «κρύβει»
+εντελώς ο compiler όταν γράφουμε κώδικα σε γλώσσες υψηλού επιπέδου, π.χ. σε C). H διαχείριση της
+στοίβας κάνει τον κώδικα της συνάρτησης ελαφρώς πιο περίπλοκο. Όποιος ενδιαφέρεται για
+περισσότερες λεπτομέρειες μπορεί να διαβάσει την παράγραφο Α.6 του παραρτήματος Assemblers,
+Linkers and the SPIM Simulator καθώς και τα http://cs.ucsb.edu/~franklin/154/Fall07/lectures/Lec5.ppt,
+http://uscspring2010.googlecode.com/svn/trunk/EE%20352/MIPSXCallingXConventionsXSummary.pdf.
+
+3) καταχωρητή κινητής υποδιαστολής σε έναν άλλο είναι η mov.s (σε αντιστοιχία με τη move
+για τους καταχωρητές γενικού σκοπού).

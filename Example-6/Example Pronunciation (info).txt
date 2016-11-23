@@ -1,0 +1,60 @@
+~English~
+
+Question
+The Fibonacci sequence is an arithmetic series, each term of which is clear from
+sum of the two previous ones, while the first two terms are 0 and 1 (i.e., fibn + 2 =
+fibn + 1 + fibn, with fib0 = 0 and fib1 = 1). Accordingly, the first terms of the sequence are: 0, 1, 1, 2, 3,
+5, 8, 13, 21, 34, 55, 89, 144, 233 ... Write a program, which will initially asks
+the user to enter the number of terms of the Fibonacci sequence that wishes to
+printed and then prints these conditions to the console QtSpim, the
+one beside the other, separated by spaces (that is, input 5 will be
+displayed: 0 1 1 2 3).
+Clarifications - Tips
+1. It is obvious that for the calculation and printing of terms of the sequence
+the user prompts, you need to use a loop. Each iteration of the loop will
+manages two terms of the sequence, even if the i and i + 1, which will be
+stored in two registers. Specifically, in each iteration will be printed the
+i term of the sequence, I calculated the term i + 2 (by i and i + 1) and stored
+(The same registers that the terms i and i + 1) terms were stored
+i + 1 and i + 2, so be ready for the next iteration of the loop.
+2. Use your code in the smallest possible number of MIPS registers.
+In particular, for the calculation of the terms of the Fibonacci sequence, you need three
+recorders (two for storing the terms of the sequence that manages each
+repeating the loop, and a temporary for the alternations of terms). the three
+aforementioned registers the counter does not count the repetitions of
+loop.
+3. Do not forget to use the exit system call in your code for
+correct termination of the program.
+4. Repeat the execution of the program, making the "Clear function
+Registers "of QtSpim before the" Run "button is pressed again.
+
+
+~Greek~
+
+Ερώτημα
+Η ακολουθία Fibonacci είναι μία αριθμητική σειρά, ο κάθε όρος της οποίας προκύπτει από το
+άθροισμα των δύο προηγούμενων, ενώ οι δύο πρώτοι όροι είναι οι 0 και 1 (δηλαδή, fibn+2 =
+fibn+1+ fibn, με fib0 = 0 και fib1 = 1). Συνεπώς, οι πρώτοι όροι της ακολουθίας είναι οι: 0, 1, 1, 2, 3,
+5, 8, 13, 21, 34, 55, 89, 144, 233, ... Να γράψετε ένα πρόγραμμα, το οποίο θα ζητάει αρχικά από
+το χρήστη να εισάγει το πλήθος των όρων της ακολουθίας Fibonacci που επιθυμεί να
+εκτυπωθούν και, στη συνέχεια, θα εκτυπώνει τους όρους αυτούς στην κονσόλα του QtSpim, τον
+έναν δίπλα στον άλλο, χωρισμένους μεταξύ τους με κενά (δηλαδή, για είσοδο 5, θα πρέπει να
+εμφανίζεται: 0 1 1 2 3).
+Διευκρινίσεις – Υποδείξεις
+1. Είναι προφανές ότι για τον υπολογισμό και την εκτύπωση των όρων της ακολουθίας που
+ζητάει ο χρήστης, θα πρέπει να χρησιμοποιήσετε ένα loop. Κάθε επανάληψη του loop θα
+διαχειρίζεται δύο όρους της ακολουθίας, έστω τους i και i+1, οι οποίοι θα βρίσκονται
+αποθηκευμένοι σε δύο καταχωρητές. Συγκεκριμένα, σε κάθε επανάληψη θα εκτυπώνεται ο
+όρος i της ακολουθίας, θα υπολογίζεται ο όρος i+2 (από τους i και i+1) και θα αποθηκεύονται
+(στους ίδιους καταχωρητές που βρίσκονταν αποθηκευμένοι οι όροι i και i+1) οι όροι
+i+1 και i+2, ώστε να είναι έτοιμοι για την επόμενη επανάληψη του loop.
+2. Χρησιμοποιήστε στον κώδικά σας το μικρότερο δυνατό αριθμό καταχωρητών του MIPS.
+Συγκεκριμένα, για τον υπολογισμό των όρων της ακολουθίας Fibonacci, χρειάζεστε τρεις
+καταχωρητές (δύο για την αποθήκευση των όρων της ακολουθίας που διαχειρίζεται κάθε
+επανάληψη του loop, καθώς και έναν προσωρινό για τις εναλλαγές των όρων). Στους τρεις
+προαναφερθέντες καταχωρητές δεν συνυπολογίζεται ο μετρητής των επαναλήψεων του
+loop.
+3. Μην ξεχάσετε να χρησιμοποιήσετε την κλήση συστήματος exit στον κώδικά σας για το
+σωστό τερματισμό του προγράμματος.
+4. Επαναλάβατε την εκτέλεση του προγράμματος, πραγματοποιώντας τη λειτουργία “Clear
+Registers” του QtSpim πριν πατήσετε εκ νέου το κουμπί “Run”.

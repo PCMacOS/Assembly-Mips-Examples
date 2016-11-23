@@ -1,0 +1,14 @@
+~English~
+
+Example 1
+Questions:
+A. Write a program that displays your name and the registration number you, in two consecutive lines in console QtSpim.
+B. Write a program that asks the user to enter two integers numbers, displaying appropriate messages to the console QtSpim. Then will performs the act of removing the second number from the first and displays the effect, accompanied by an appropriate message (eg "The result of the subtraction is"), in the console. To store the two numbers and the result of subtraction to total use two registers of MIPS, the $ t0 and $ t1.
+
+
+~Greek~
+
+Άσκηση 1
+Ερωτήματα:
+Α. Να γράψετε ένα πρόγραμμα, το οποίο να εμφανίζει το όνομά σας και τον αριθμό μητρώου σας, σε δύο συνεχόμενες γραμμές στην κονσόλα του QtSpim.
+Β. Να γράψετε ένα πρόγραμμα, το οποίο θα ζητάει από το χρήστη να εισάγει δύο ακέραιους αριθμούς, εμφανίζοντας τα κατάλληλα μηνύματα στην κονσόλα του QtSpim. Στη συνέχεια, θα εκτελεί την πράξη της αφαίρεσης του δεύτερου αριθμού από τον πρώτο και θα εμφανίζει το αποτέλεσμα, συνοδευόμενο από κατάλληλο μήνυμα (π.χ. "The result of the subtraction is "), στην κονσόλα. Για την αποθήκευση των δύο αριθμών και του αποτελέσματος της αφαίρεσης να χρησιμοποιήσετε συνολικά δύο καταχωρητές του MIPS, τους $t0 και $t1.
